@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Há Kai</title>
+    
+    <!-- Importamos el componente model-viewer -->
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.1.1/model-viewer.min.js"></script>
+    
+    <!-- Fuentes para los distintos estilos -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            /* Paleta original mantenida para todos los estilos */
+            --off-white: #F2EDE6;
+            --terracota: #B8755F;
+            --burgundy: #5E2C34;
+            --marrom: #7A5D4E;
+        }
+
+        /* Reset general para la previsualización */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #222; /* Fondo oscuro para contrastar las 4 opciones */
+            font-family: sans-serif;
+        }
+
+        .etiqueta-estilo {
+            background-color: #111;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin: 0;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 2px solid #444;
+        }
+
+        .preview-wrapper {
+            margin-bottom: 5rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+
+        /* Reset interno para cada mock-up */
+        .page-mockup {
+            position: relative;
+            overflow: hidden;
+            background-color: var(--off-white);
+        }
+
+        .page-mockup header h1 { margin: 0; }
+
+        /* =========================================
+           OPCIÓN 1: ESTILO ORIGINAL (El que teníamos)
+           ========================================= */
+        .style-1 {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--burgundy);
+        }
+        .style-1 header {
+            background-color: var(--burgundy);
+            color: var(--off-white);
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+        .style-1 .container {
+            max-width: 1100px;
+            margin: 4rem auto;
+            padding: 0 2rem 4rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        .style-1 .btn {
+            background-color: var(--terracota);
+            color: var(--off-white);
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(184, 117, 95, 0.3);
+        }
+        /* Animación Botón 1: Elevación y cambio de color */
+        .style-1 .btn:hover {
+            background-color: var(--burgundy);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 15px rgba(94, 44, 52, 0.4);
+        }
+        .style-1 .model-container {
+            background-color: white;
+            border: 3px dashed var(--terracota);
+            border-radius: 16px;
+            height: 350px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+        .style-1 .model-container:hover { transform: scale(1.02); border-style: solid; }
+
+
+        /* =========================================
+           OPCIÓN 2: ESTILO GLASSMORPHISM (Tipo iOS)
+           ========================================= */
+        .style-2 {
+            /* Tipografía nativa de Apple/Sistemas modernos */
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: #1d1d1f;
+            /* Fondo sutilmente degradado para lucir el cristal */
+            background: linear-gradient(135deg, var(--off-white) 0%, #e3dad0 100%);
+        }
+        .style-2 header {
+            padding: 2.5rem 0;
+            text-align: center;
+            background: rgba(242, 237, 230, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        .style-2 header h1 {
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            color: var(--burgundy);
+        }
+        .style-2 .container {
+            max-width: 900px;
+            margin: 3rem auto 5rem;
+            padding: 3rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 10px 40px rgba(94, 44, 52, 0.08);
+        }
+        .style-2 .btn {
+            background: rgba(184, 117, 95, 0.15); /* Terracota transparente */
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            color: var(--burgundy);
+            border: 1px solid rgba(184, 117, 95, 0.3);
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 20px;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        /* Animación Botón 2: Expansión suave y brillo de cristal */
+        .style-2 .btn:hover {
+            background: rgba(184, 117, 95, 0.8);
+            color: white;
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(184, 117, 95, 0.3);
+            border-color: rgba(184, 117, 95, 0.5);
+        }
+        .style-2 .model-container {
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 25px;
+            height: 350px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.5);
+            transition: transform 0.5s ease;
+        }
+        .style-2 .model-container:hover {
+            transform: perspective(1000px) rotateY(-5deg) rotateX(5deg);
+        }
+
+
+        /* =========================================
+           OPCIÓN 3: ESTILO NEOBRUTALISMO / RETRO
+           ========================================= */
+        .style-3 {
+            font-family: 'Space Mono', 'Courier New', Courier, monospace;
+            background-color: var(--off-white);
+            color: #000;
+        }
+        .style-3 .inner-wrap {
+            border: 6px solid #000;
+            margin: 2rem;
+            background-color: var(--off-white);
+        }
+        .style-3 header {
+            background-color: var(--terracota);
+            color: #000;
+            padding: 2rem;
+            text-align: center;
+            border-bottom: 6px solid #000;
+        }
+        .style-3 header h1 {
+            text-transform: uppercase;
+            font-size: 3rem;
+            text-shadow: 4px 4px 0px var(--off-white);
+        }
+        .style-3 .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4rem;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .style-3 .text-section, .style-3 .model-container { flex: 1; min-width: 300px; }
+        .style-3 .btn {
+            background-color: var(--marrom);
+            color: var(--off-white);
+            padding: 1rem 3rem;
+            text-decoration: none;
+            border: 4px solid #000;
+            font-weight: bold;
+            font-size: 1.1rem;
+            display: inline-block;
+            box-shadow: 8px 8px 0px #000;
+            transition: all 0.1s ease; /* Transición muy rápida e intencionalmente brusca */
+            text-transform: uppercase;
+        }
+        /* Animación Botón 3: Efecto de presionado mecánico */
+        .style-3 .btn:hover {
+            background-color: var(--burgundy);
+        }
+        .style-3 .btn:active {
+            transform: translate(6px, 6px);
+            box-shadow: 2px 2px 0px #000;
+        }
+        .style-3 .model-container {
+            background-color: var(--off-white);
+            border: 6px solid #000;
+            height: 350px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 12px 12px 0px #000;
+            transition: transform 0.2s ease;
+        }
+        .style-3 .model-container:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: 16px 16px 0px #000;
+        }
+
+
+        /* =========================================
+           OPCIÓN 4: ESTILO MINIMALISTA / ELEGANTE
+           ========================================= */
+        .style-4 {
+            font-family: 'Playfair Display', serif;
+            background-color: var(--off-white);
+            color: var(--burgundy);
+        }
+        .style-4 header {
+            padding: 5rem 2rem 2rem;
+            text-align: center;
+        }
+        .style-4 header h1 {
+            font-size: 3.5rem;
+            font-weight: 400;
+            letter-spacing: 4px;
+            margin-bottom: 1rem;
+        }
+        /* Línea decorativa elegante bajo el título */
+        .style-4 header h1::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 2px;
+            background: var(--terracota);
+            margin: 1.5rem auto 0;
+        }
+        .style-4 .container {
+            max-width: 800px;
+            margin: 2rem auto 6rem;
+            padding: 0 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+            align-items: center;
+            text-align: center;
+        }
+        .style-4 .text-section p {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            font-weight: 300;
+            line-height: 2;
+            color: var(--marrom);
+            font-size: 1.1rem;
+        }
+        .style-4 .btn {
+            background: transparent;
+            color: var(--burgundy);
+            padding: 1rem 3.5rem;
+            text-decoration: none;
+            border: 1px solid var(--burgundy);
+            font-family: 'Segoe UI', sans-serif;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+            transition: color 0.4s ease;
+        }
+        /* Animación Botón 4: Relleno de color tipo barrido (Sweep) */
+        .style-4 .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--burgundy);
+            transition: left 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+            z-index: -1;
+        }
+        .style-4 .btn:hover { color: var(--off-white); }
+        .style-4 .btn:hover::before { left: 0; }
+        
+        .style-4 .model-container {
+            width: 100%;
+            height: 450px;
+            border: 1px solid rgba(122, 93, 78, 0.2);
+            background: transparent;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.5s ease;
+        }
+        .style-4 .model-container:hover { opacity: 0.7; }
+
+        /* Iconos SVG compartidos */
+        .icon { width: 48px; height: 48px; margin-bottom: 10px; }
+
+    </style>
+</head>
+<body>
+
+    <!-- OPCIÓN 1 -->
+    <div class="preview-wrapper">
+        <h2 class="etiqueta-estilo">Opción 1: Estilo Moderno (Actual)</h2>
+        <div class="page-mockup style-1">
+            <header>
+                <h1>Há Kai</h1>
+            </header>
+            <main class="container">
+                <div class="text-section">
+                    <h2>Explora nuestro diseño</h2>
+                    <p>Bienvenido al visualizador. Aquí podrás interactuar con el diseño, rotarlo en cualquier dirección y hacer zoom para apreciar cada uno de los detalles.</p>
+                    <a href="#" class="btn">Contáctanos</a>
+                </div>
+                <div class="model-container">
+                    <div>
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="var(--terracota)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                        <h3>Modelo 3D</h3>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- OPCIÓN 2 -->
+    <div class="preview-wrapper">
+        <h2 class="etiqueta-estilo">Opción 2: Estilo Glassmorphism (Tipo iOS)</h2>
+        <div class="page-mockup style-2">
+            <header>
+                <h1>Há Kai</h1>
+            </header>
+            <main class="container">
+                <div class="text-section">
+                    <h2>Visualización inmersiva</h2>
+                    <p>Experimenta la fluidez del diseño. Rota, explora y acércate para descubrir los detalles en un entorno ligero y moderno.</p>
+                    <a href="#" class="btn">Enviar un mensaje</a>
+                </div>
+                <div class="model-container">
+                    <div>
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="var(--burgundy)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                        <h3 style="color: var(--burgundy)">Modelo 3D</h3>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- OPCIÓN 3 -->
+    <div class="preview-wrapper">
+        <h2 class="etiqueta-estilo">Opción 3: Estilo Retro / Neobrutalista</h2>
+        <div class="page-mockup style-3">
+            <div class="inner-wrap">
+                <header>
+                    <h1>Há Kai</h1>
+                </header>
+                <main class="container">
+                    <div class="text-section">
+                        <h2>> MODO EXPLORACIÓN_</h2>
+                        <p>Interactúa con la malla tridimensional. Gira los ejes y analiza la topología de nuestro trabajo en tiempo real.</p>
+                        <a href="#" class="btn">INICIAR CONTACTO</a>
+                    </div>
+                    <div class="model-container">
+                        <div>
+                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                            <h3>[ MODELO_3D ]</h3>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <!-- OPCIÓN 4 -->
+    <div class="preview-wrapper" style="margin-bottom: 0;">
+        <h2 class="etiqueta-estilo">Opción 4: Estilo Elegante / Minimalista</h2>
+        <div class="page-mockup style-4">
+            <header>
+                <h1>Há Kai</h1>
+            </header>
+            <main class="container">
+                <div class="text-section">
+                    <p>Una nueva perspectiva. Te invitamos a rotar y descubrir la armonía de nuestras formas desde cualquier ángulo.</p>
+                    <br>
+                    <a href="#" class="btn">Contáctanos</a>
+                </div>
+                <div class="model-container">
+                    <div>
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="var(--marrom)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+</body>
+</html>
