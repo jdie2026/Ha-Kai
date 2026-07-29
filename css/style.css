@@ -1,0 +1,220 @@
+/* =========================================
+   VARIABLES Y FUENTES
+   ========================================= */
+:root {
+    --off-white: #F2EDE6;
+    --terracota: #B8755F;
+    --burgundy: #5E2C34;
+    --marrom: #7A5D4E;
+}
+
+/* Importación de la fuente Intro Rust desde tus archivos locales */
+@font-face {
+    font-family: 'Intro Rust';
+    /* Asegúrate de que el nombre del archivo coincida exactamente */
+    src: url('../assets/fonts/IntroRust.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* =========================================
+   ESTILOS GENERALES
+   ========================================= */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--off-white);
+    color: var(--burgundy);
+    scroll-behavior: smooth;
+}
+
+/* =========================================
+   ENCABEZADO Y TIPOGRAFÍA
+   ========================================= */
+header {
+    padding: 5rem 2rem 2rem;
+    text-align: center;
+}
+
+header h1 {
+    /* Aquí aplicamos la fuente Intro Rust. Si falla, usa Impact o una genérica */
+    font-family: 'Intro Rust', Impact, sans-serif;
+    font-size: 4rem;
+    font-weight: normal;
+    letter-spacing: 4px;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+/* Línea decorativa elegante bajo el título */
+header h1::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 2px;
+    background: var(--terracota);
+    margin: 1.5rem auto 0;
+}
+
+/* =========================================
+   CONTENEDOR PRINCIPAL Y TEXTO
+   ========================================= */
+.container {
+    max-width: 800px;
+    margin: 2rem auto 6rem;
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    align-items: center;
+    text-align: center;
+}
+
+.text-section p {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    font-weight: 300;
+    line-height: 2;
+    color: var(--marrom);
+    font-size: 1.1rem;
+}
+
+/* =========================================
+   BOTONES Y ANIMACIONES (Ghost Button)
+   ========================================= */
+.btn {
+    background: transparent;
+    color: var(--burgundy);
+    padding: 1rem 3.5rem;
+    text-decoration: none;
+    border: 1px solid var(--burgundy);
+    font-family: 'Segoe UI', sans-serif;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    transition: color 0.4s ease;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--burgundy);
+    transition: left 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+    z-index: -1;
+}
+
+.btn:hover {
+    color: var(--off-white);
+}
+
+.btn:hover::before {
+    left: 0;
+}
+
+/* =========================================
+   MODELO 3D
+   ========================================= */
+.model-container {
+    width: 100%;
+    height: 450px;
+    border: 1px solid rgba(122, 93, 78, 0.2);
+    /* Aplicamos el color verde que pidió tu novia */
+    background-color: #505f42; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s ease;
+    position: relative;
+    /* Redondeamos un poco los bordes para que se vea más elegante */
+    border-radius: 12px; 
+    overflow: hidden;
+}
+
+.model-container:hover {
+    opacity: 0.9;
+}
+
+model-viewer {
+    width: 100%;
+    height: 100%;
+    /* Mantenemos el fondo transparente para que deje ver el verde del contenedor */
+    background-color: transparent; 
+    /* ¡Cambiamos a block para que el modelo por fin sea visible! */
+    display: block; 
+}
+
+#placeholder-text {
+    text-align: center;
+}
+
+/* =========================================
+   SECCIÓN DE CONTACTO (Estilo Elegante)
+   ========================================= */
+.contact-section {
+    max-width: 600px;
+    margin: 0 auto 6rem;
+    padding: 0 2rem;
+    text-align: center;
+}
+
+.contact-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: normal;
+    color: var(--burgundy);
+    margin-bottom: 3rem;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Inputs minimalistas: solo la línea de abajo */
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 1rem 0;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(122, 93, 78, 0.4);
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 1rem;
+    color: var(--burgundy);
+    transition: border-color 0.3s ease;
+    box-sizing: border-box;
+}
+
+.contact-form input:focus, .contact-form textarea:focus {
+    outline: none;
+    border-bottom: 1px solid var(--terracota);
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.btn-submit {
+    background-color: var(--burgundy);
+    color: var(--off-white);
+    border: none;
+    padding: 1rem;
+    font-family: 'Segoe UI', sans-serif;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 1rem;
+}
+
+.btn-submit:hover {
+    background-color: var(--terracota);
+}
