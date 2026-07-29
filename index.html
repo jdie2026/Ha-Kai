@@ -3,40 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Há Kai</title>
+    <title>Ká Hai</title>
     
-    <!-- Enlace a tu hoja de estilos externa -->
     <link rel="stylesheet" href="css/style.css">
     
-    <!-- Fuentes de Google para el texto secundario (Playfair y Segoe) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     
-    <!-- Componente para el modelo 3D -->
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.1.1/model-viewer.min.js"></script>
 </head>
 <body>
 
     <header>
-        <h1>Há Kai</h1>
+        <!-- Nota: Actualicé el nombre a Ká Hai basándome en el significado -->
+        <h1>Ká Hai</h1>
     </header>
 
-    <main class="container">
-        <div class="text-section">
-            <p>Una nueva perspectiva. Te invitamos a rotar y descubrir la armonía de nuestras formas desde cualquier ángulo.</p>
-            <br>
-            <!-- Este botón ahora te desplaza suavemente al formulario -->
-            <a href="#contacto" class="btn">Contáctanos</a>
+    <main>
+        <div class="container main-hero">
+            <div class="text-section">
+                <p>Una nueva perspectiva. Te invitamos a rotar y descubrir la armonía de nuestras formas desde cualquier ángulo.</p>
+                <br>
+                <a href="#contacto" class="btn">Contáctanos</a>
+            </div>
+            
+            <div class="model-container">
+                <!-- 
+                  orientation: Modifica estos 3 valores (X Y Z) para corregir la postura inicial de tu modelo.
+                  max-camera-orbit: Permite que el usuario rote la cámara libremente por debajo del objeto.
+                -->
+                <model-viewer id="mi-modelo" src="assets/models/tu_modelo.glb" alt="Diseño Ká Hai" 
+                              auto-rotate 
+                              camera-controls 
+                              orientation="0deg 0deg 0deg" 
+                              max-camera-orbit="auto 180deg auto"
+                              shadow-intensity="1">
+                    
+                    <!-- UI de Control 3D -->
+                    <div class="controles-3d">
+                        <div class="control-item">
+                            <label for="color-modelo">Color de la pieza:</label>
+                            <!-- El valor por defecto es blanco (#ffffff) -->
+                            <input type="color" id="color-modelo" value="#ffffff">
+                        </div>
+                        <button class="btn-reset" onclick="resetearVista()">Restaurar Vista</button>
+                    </div>
+
+                </model-viewer>
+            </div>
         </div>
-        
-        <div class="model-container">
-            <!-- Asegúrate de poner el nombre exacto de tu archivo .glb aquí -->
-            <model-viewer src="assets/models/molde3D.glb" alt="Diseño Há Kai" auto-rotate camera-controls></model-viewer>
-        </div>
+
+        <!-- SECCIÓN 1: ¿Quiénes Somos? -->
+        <section class="info-section alternate-bg">
+            <div class="container-small">
+                <h2>¿Quiénes somos?</h2>
+                <p>Nuestra esencia es Querétaro y la Tierra. Evolucionamos el adobe tradicional con materiales volcánicos para crear el biomaterial del futuro.</p>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 2: Diferenciadores -->
+        <section class="info-section">
+            <div class="container">
+                <h2>¿Qué nos hace diferentes?</h2>
+                <div class="features-grid">
+                    
+                    <div class="feature-item">
+                        <svg class="icon-feature" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <!-- Icono Brazo Fuerte -->
+                            <path d="M12.5 10.5C12.5 10.5 15.5 6 18 6C19.38 6 20.5 7.12 20.5 8.5C20.5 10 16 16 16 16"></path>
+                            <path d="M5.5 13.5L8.5 16.5C8.5 16.5 10.5 17.5 12.5 17.5C14.5 17.5 16 16 16 16"></path>
+                            <path d="M5.5 13.5C4.12 13.5 3 12.38 3 11C3 9.62 4.12 8.5 5.5 8.5C6.5 8.5 8.5 10.5 8.5 10.5"></path>
+                            <circle cx="12.5" cy="13.5" r="2"></circle>
+                        </svg>
+                        <h3>Alta resistencia y durabilidad</h3>
+                    </div>
+
+                    <div class="feature-item">
+                        <svg class="icon-feature" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <!-- Icono Mano con Planeta -->
+                            <circle cx="12" cy="9" r="6"></circle>
+                            <path d="M6 9C6 12.31 12 15 12 15C12 15 18 12.31 18 9"></path>
+                            <path d="M9 22V17.5C9 16.67 9.67 16 10.5 16H13.5C14.33 16 15 16.67 15 17.5V22"></path>
+                            <path d="M7 20H17"></path>
+                        </svg>
+                        <h3>100% Sostenibles y Naturales</h3>
+                    </div>
+
+                    <div class="feature-item">
+                        <svg class="icon-feature" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <!-- Icono Volcán -->
+                            <path d="M8.5 10L3 21H21L15.5 10"></path>
+                            <path d="M12 4V5"></path>
+                            <path d="M9.5 5.5L10 6.5"></path>
+                            <path d="M14.5 5.5L14 6.5"></path>
+                            <path d="M11 14H13V21H11V14Z" fill="currentColor"></path>
+                        </svg>
+                        <h3>Materiales Volcánicos</h3>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 3: Significado -->
+        <section class="info-section alternate-bg">
+            <div class="container-small meaning-box">
+                <h2>Significado</h2>
+                <h3 class="word-title">Ká Hai</h3>
+                <p class="etymology">[ otomí ]</p>
+                <div class="meaning-list">
+                    <p><strong>Hai:</strong> Tierra, uno de los cuatro elementos fundamentales de la naturaleza en la cultura.</p>
+                    <p><strong>Ká:</strong> Funciona como un artículo determinado, formando así <em>“Nuestra propia Tierra”</em>.</p>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <!-- Sección de Contacto Minimalista -->
     <section id="contacto" class="contact-section">
         <h2>Inicia tu proyecto</h2>
         <form class="contact-form" action="#" method="POST">
@@ -47,5 +130,26 @@
         </form>
     </section>
 
+    <!-- Script para controlar el modelo 3D -->
+    <script>
+        const modelViewer = document.querySelector('#mi-modelo');
+        const colorPicker = document.querySelector('#color-modelo');
+
+        // Escucha cuando el usuario cambia el color en el selector
+        colorPicker.addEventListener('input', (event) => {
+            const colorString = event.target.value;
+            // Asegurarse de que el modelo y sus materiales ya cargaron
+            if(modelViewer.model && modelViewer.model.materials && modelViewer.model.materials.length > 0) {
+                // Al igual que los índices de materiales en una malla, accedemos al primer material (índice 0)
+                modelViewer.model.materials[0].pbrMetallicRoughness.setBaseColorFactor(colorString);
+            }
+        });
+
+        // Función para el botón de reiniciar la cámara
+        function resetearVista() {
+            modelViewer.cameraOrbit = "auto auto auto";
+            modelViewer.cameraTarget = "auto auto auto";
+        }
+    </script>
 </body>
 </html>

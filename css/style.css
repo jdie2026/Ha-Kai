@@ -218,3 +218,161 @@ model-viewer {
 .btn-submit:hover {
     background-color: var(--terracota);
 }
+
+/* =========================================
+   UI DEL MODELO 3D
+   ========================================= */
+.controles-3d {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(242, 237, 230, 0.9);
+    padding: 10px 20px;
+    border-radius: 20px;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 0.9rem;
+}
+
+.control-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--burgundy);
+}
+
+#color-modelo {
+    border: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    cursor: pointer;
+    background: none;
+    padding: 0;
+}
+
+#color-modelo::-webkit-color-swatch-wrapper { padding: 0; }
+#color-modelo::-webkit-color-swatch { border: 2px solid var(--marrom); border-radius: 50%; }
+
+.btn-reset {
+    background: var(--terracota);
+    color: var(--off-white);
+    border: none;
+    padding: 6px 12px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-reset:hover {
+    background: var(--burgundy);
+}
+
+/* =========================================
+   NUEVAS SECCIONES DE INFORMACIÓN
+   ========================================= */
+.info-section {
+    padding: 5rem 2rem;
+    text-align: center;
+}
+
+.alternate-bg {
+    background-color: rgba(122, 93, 78, 0.05); /* Fondo ligerísimo Marrom */
+}
+
+.container-small {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.info-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    color: var(--burgundy);
+    margin-bottom: 2rem;
+    font-weight: normal;
+}
+
+.info-section p {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    line-height: 1.8;
+    color: var(--marrom);
+    font-size: 1.1rem;
+}
+
+/* Diferenciadores (Grid) */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+.feature-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.icon-feature {
+    width: 60px;
+    height: 60px;
+    color: var(--terracota);
+    margin-bottom: 1.5rem;
+}
+
+.feature-item h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--burgundy);
+    font-weight: 600;
+}
+
+/* Ajuste a una columna en celulares */
+@media (max-width: 768px) {
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Significado (Ká Hai) */
+.meaning-box {
+    background: white;
+    padding: 3rem 2rem;
+    border: 1px solid rgba(122, 93, 78, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(94, 44, 52, 0.05);
+}
+
+.word-title {
+    /* Mantenemos la tipografía base elegante si no cargó Intro Rust aquí, o puedes cambiársela si gustas */
+    font-family: 'Intro Rust', Impact, sans-serif;
+    font-size: 3rem;
+    color: var(--terracota);
+    margin: 0;
+    letter-spacing: 2px;
+}
+
+.etymology {
+    font-style: italic;
+    color: #999 !important;
+    margin-top: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.meaning-list p {
+    text-align: left;
+    margin-bottom: 1.5rem;
+    border-left: 3px solid var(--terracota);
+    padding-left: 1.5rem;
+}
+
+.meaning-list strong {
+    color: var(--burgundy);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+}
