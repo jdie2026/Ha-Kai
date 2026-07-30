@@ -48,7 +48,7 @@ header::before {
     transform: translate(-50%, -50%);
     width: 400px; /* Ajusta el tamaño según qué tan grande sea su logo */
     height: 400px;
-    background-image: url('../assets/images/logo.png'); /* Ruta de tu imagen */
+    background-image: url('../assets/images/logoKaHai.png'); /* Ruta de tu imagen */
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -375,14 +375,14 @@ model-viewer {
     position: absolute;
     top: 50%;
     left: 70%; /* Lo muevo un poco a la derecha para que no estorbe tanto el texto */
-    transform: translate(-50%, -50%);
-    width: 300px; 
-    height: 300px;
-    background-image: url('../assets/images/logo.png'); /* Ruta de tu imagen */
+    transform: translate(-75%, -50%);
+    width: 700px; 
+    height: 700px;
+    background-image: url('../assets/images/logoKaHai.png'); /* Ruta de tu imagen */
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    opacity: 0.05; /* Transparencia aún más sutil (5%) */
+    opacity: 0.1; /* Transparencia aún más sutil (5%) */
     z-index: -1;
 
 .word-title {

@@ -109,8 +109,8 @@
         <!-- SECCIÓN 3: Significado -->
         <section class="info-section alternate-bg">
             <div class="container-small meaning-box">
-                <h2>Significado</h2>
-                <h3 class="word-title">Ká Hai</h3>
+                 <h1>Ká Hai</h1> 
+                <!--<h1 class="word-title">Ká Hai</h1>-->
                 <p class="etymology">[ otomí ]</p>
                 <div class="meaning-list">
                     <p><strong>Hai:</strong> Tierra, uno de los cuatro elementos fundamentales de la naturaleza en la cultura.</p>
@@ -122,9 +122,11 @@
 
     <section id="contacto" class="contact-section">
         <h2>Inicia tu proyecto</h2>
-        <form class="contact-form" action="#" method="POST">
+        <!-- Aquí pegas tu enlace de Formspree -->
+        <form class="contact-form" action="https://formspree.io/f/mnjeyjny" method="POST">
             <input type="text" name="nombre" placeholder="Nombre completo" required>
-            <input type="email" name="correo" placeholder="Correo electrónico" required>
+            <!-- El input de correo debe llamarse _replyto para que Formspree sepa a quién contestar -->
+            <input type="email" name="_replyto" placeholder="Correo electrónico" required>
             <textarea name="mensaje" placeholder="¿En qué podemos ayudarte?" required></textarea>
             <button type="submit" class="btn-submit">Enviar mensaje</button>
         </form>
