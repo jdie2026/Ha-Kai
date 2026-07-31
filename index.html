@@ -5,22 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ká Hai</title>
     
+    <!-- Enlace a tu hoja de estilos -->
     <link rel="stylesheet" href="css/style.css">
     
+    <!-- Fuentes secundarias de Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     
+    <!-- Componente para los modelos 3D -->
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.1.1/model-viewer.min.js"></script>
 </head>
 <body>
 
     <header>
-        <!-- Nota: Actualicé el nombre a Ká Hai basándome en el significado -->
         <h1>Ká Hai</h1>
     </header>
 
-<main>
+    <main>
         <div class="container main-hero">
             <div class="text-section">
                 <p>Una nueva perspectiva. Te invitamos a rotar y descubrir la armonía de nuestras formas desde cualquier ángulo.</p>
@@ -28,14 +30,14 @@
                 <a href="#contacto" class="btn">Contáctanos</a>
             </div>
             
-            <!-- Controles Globales para ambos modelos -->
+            <!-- Controles Globales para ambos modelos 3D -->
             <div class="controles-3d-globales">
                 <label for="color-modelo">Color de visualización:</label>
                 <input type="color" id="color-modelo" value="#ffffff">
                 <button class="btn-reset" onclick="resetearVistas()">Restaurar Vistas</button>
             </div>
 
-            <!-- Modelo 1: KaHaiBlock3D -->
+            <!-- Modelo 1: Bloque -->
             <div class="model-wrapper">
                 <h2 class="modelo-titulo">Bloque</h2>
                 <div class="model-container">
@@ -46,7 +48,7 @@
                 </div>
             </div>
 
-            <!-- Modelo 2: molde3D -->
+            <!-- Modelo 2: Molde -->
             <div class="model-wrapper">
                 <h2 class="modelo-titulo">Molde</h2>
                 <div class="model-container">
@@ -71,27 +73,45 @@
             <div class="container">
                 <h2>¿Qué nos hace diferentes?</h2>
                 <div class="features-grid">
-                    <!-- (Aquí van los mismos 3 bloques de los íconos SVG que ya tenías) -->
+                    
                     <div class="feature-item">
-                        <svg class="icon-feature" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12.5 10.5C12.5 10.5 15.5 6 18 6C19.38 6 20.5 7.12 20.5 8.5C20.5 10 16 16 16 16"></path><path d="M5.5 13.5L8.5 16.5C8.5 16.5 10.5 17.5 12.5 17.5C14.5 17.5 16 16 16 16"></path><path d="M5.5 13.5C4.12 13.5 3 12.38 3 11C3 9.62 4.12 8.5 5.5 8.5C6.5 8.5 8.5 10.5 8.5 10.5"></path><circle cx="12.5" cy="13.5" r="2"></circle></svg>
+                        <svg class="icon-feature" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12.5 10.5C12.5 10.5 15.5 6 18 6C19.38 6 20.5 7.12 20.5 8.5C20.5 10 16 16 16 16"></path>
+                            <path d="M5.5 13.5L8.5 16.5C8.5 16.5 10.5 17.5 12.5 17.5C14.5 17.5 16 16 16 16"></path>
+                            <path d="M5.5 13.5C4.12 13.5 3 12.38 3 11C3 9.62 4.12 8.5 5.5 8.5C6.5 8.5 8.5 10.5 8.5 10.5"></path>
+                            <circle cx="12.5" cy="13.5" r="2"></circle>
+                        </svg>
                         <h3>Alta resistencia y durabilidad</h3>
                     </div>
+
                     <div class="feature-item">
-                        <svg class="icon-feature" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"></circle><path d="M6 9C6 12.31 12 15 12 15C12 15 18 12.31 18 9"></path><path d="M9 22V17.5C9 16.67 9.67 16 10.5 16H13.5C14.33 16 15 16.67 15 17.5V22"></path><path d="M7 20H17"></path></svg>
+                        <svg class="icon-feature" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="9" r="6"></circle>
+                            <path d="M6 9C6 12.31 12 15 12 15C12 15 18 12.31 18 9"></path>
+                            <path d="M9 22V17.5C9 16.67 9.67 16 10.5 16H13.5C14.33 16 15 16.67 15 17.5V22"></path>
+                            <path d="M7 20H17"></path>
+                        </svg>
                         <h3>100% Sostenibles y Naturales</h3>
                     </div>
+
                     <div class="feature-item">
-                        <svg class="icon-feature" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 10L3 21H21L15.5 10"></path><path d="M12 4V5"></path><path d="M9.5 5.5L10 6.5"></path><path d="M14.5 5.5L14 6.5"></path><path d="M11 14H13V21H11V14Z" fill="currentColor"></path></svg>
+                        <svg class="icon-feature" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M8.5 10L3 21H21L15.5 10"></path>
+                            <path d="M12 4V5"></path>
+                            <path d="M9.5 5.5L10 6.5"></path>
+                            <path d="M14.5 5.5L14 6.5"></path>
+                            <path d="M11 14H13V21H11V14Z" fill="currentColor"></path>
+                        </svg>
                         <h3>Materiales Volcánicos</h3>
                     </div>
+
                 </div>
             </div>
         </section>
 
-        <!-- SECCIÓN 3: Significado (Actualizada sin el H2 genérico) -->
+        <!-- SECCIÓN 3: Significado -->
         <section class="info-section alternate-bg">
             <div class="container-small meaning-box">
-                <!-- Se cambió el H2 de 'Significado' por el nombre del negocio con la fuente Intro Rust -->
                 <h2 class="word-title">Ká Hai</h2>
                 <p class="etymology">[ otomí ]</p>
                 <div class="meaning-list">
@@ -102,7 +122,7 @@
         </section>
     </main>
 
-    <!-- Formulario de Contacto Actualizado para usar AJAX -->
+    <!-- Sección de Contacto -->
     <section id="contacto" class="contact-section">
         <h2>Inicia tu proyecto</h2>
         <form class="contact-form" id="form-contacto" action="https://formspree.io/f/mnjeyjny" method="POST">
@@ -110,12 +130,11 @@
             <input type="email" name="_replyto" placeholder="Correo electrónico" required>
             <textarea name="mensaje" placeholder="¿En qué podemos ayudarte?" required></textarea>
             <button type="submit" class="btn-submit">Enviar mensaje</button>
-            <!-- Este párrafo invisible mostrará el mensaje de éxito -->
             <p id="mensaje-estado" style="display: none; margin-top: 1rem; font-family: 'Segoe UI', sans-serif; font-weight: bold;"></p>
         </form>
     </section>
 
-    <!-- Script para controlar el modelo 3D -->
+    <!-- Scripts de funcionalidad -->
     <script>
         // --- CONTROL DE LOS MODELOS 3D ---
         const modeloBloque = document.querySelector('#modelo-bloque');
@@ -124,11 +143,9 @@
 
         colorPicker.addEventListener('input', (event) => {
             const colorString = event.target.value;
-            // Cambia el color del Bloque si el material ya cargó
             if(modeloBloque.model && modeloBloque.model.materials.length > 0) {
                 modeloBloque.model.materials[0].pbrMetallicRoughness.setBaseColorFactor(colorString);
             }
-            // Cambia el color del Molde si el material ya cargó
             if(modeloMolde.model && modeloMolde.model.materials.length > 0) {
                 modeloMolde.model.materials[0].pbrMetallicRoughness.setBaseColorFactor(colorString);
             }
@@ -146,8 +163,7 @@
         const mensajeEstado = document.getElementById('mensaje-estado');
 
         formContacto.addEventListener('submit', async function(event) {
-            event.preventDefault(); // Detiene la redirección automática
-            
+            event.preventDefault(); 
             const data = new FormData(formContacto);
             
             try {
@@ -158,7 +174,7 @@
                 });
                 
                 if (response.ok) {
-                    formContacto.reset(); // Limpia los campos del formulario
+                    formContacto.reset();
                     mensajeEstado.style.color = 'var(--burgundy)';
                     mensajeEstado.innerText = "¡Mensaje enviado con éxito! Nos pondremos en contacto pronto.";
                     mensajeEstado.style.display = 'block';

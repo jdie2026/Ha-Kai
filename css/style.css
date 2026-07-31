@@ -8,10 +8,8 @@
     --marrom: #7A5D4E;
 }
 
-/* Importación de la fuente Intro Rust desde tus archivos locales */
 @font-face {
     font-family: 'Intro Rust';
-    /* Asegúrate de que el nombre del archivo coincida exactamente */
     src: url('../assets/fonts/IntroRust.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
@@ -29,31 +27,30 @@ body {
 }
 
 /* =========================================
-   ENCABEZADO Y TIPOGRAFÍA (Actualizado con Logo)
+   ENCABEZADO Y TIPOGRAFÍA (Logo de fondo)
    ========================================= */
 header {
     padding: 5rem 2rem 2rem;
     text-align: center;
-    position: relative; /* Necesario para contener el logo de fondo */
-    overflow: hidden;   /* Evita que el logo se salga de los márgenes */
-    z-index: 1;         /* Mantiene el texto por encima */
+    position: relative; 
+    overflow: hidden;   
+    z-index: 1;         
 }
 
-/* El logo de fondo en el encabezado */
 header::before {
     content: '';
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 400px; /* Ajusta el tamaño según qué tan grande sea su logo */
+    width: 400px; 
     height: 400px;
-    background-image: url('../assets/images/logoKaHai.png'); /* Ruta de tu imagen */
+    background-image: url('../assets/images/logoKaHai.png'); 
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    opacity: 0.08; /* Transparencia al 8% (marca de agua muy sutil) */
-    z-index: -1;   /* Lo manda al fondo */
+    opacity: 0.08; 
+    z-index: -1;   
 }
 
 header h1 {
@@ -97,7 +94,7 @@ header h1::after {
 }
 
 /* =========================================
-   BOTONES Y ANIMACIONES (Ghost Button)
+   BOTONES (Ghost Button)
    ========================================= */
 .btn {
     background: transparent;
@@ -127,140 +124,70 @@ header h1::after {
     z-index: -1;
 }
 
-.btn:hover {
-    color: var(--off-white);
-}
-
-.btn:hover::before {
-    left: 0;
-}
+.btn:hover { color: var(--off-white); }
+.btn:hover::before { left: 0; }
 
 /* =========================================
-   MODELO 3D
+   MODELOS 3D (Estilos Corregidos)
    ========================================= */
-.model-container {
+.main-hero {
+    max-width: 1100px; 
+}
+
+.model-wrapper {
     width: 100%;
-    height: 450px;
+    align-self: stretch; /* Evita que el contenedor flexbox padre lo aplaste */
+    margin-bottom: 4rem;
+}
+
+.modelo-titulo {
+    font-family: 'Intro Rust', Impact, sans-serif;
+    font-size: 2.5rem;
+    color: var(--terracota);
+    margin-bottom: 1rem;
+    font-weight: normal;
+    letter-spacing: 2px;
+}
+
+.model-container {
+    width: 100%; /* Corregido del error de 500% */
+    height: 550px;
     border: 1px solid rgba(122, 93, 78, 0.2);
-    /* Aplicamos el color verde que pidió tu novia */
     background-color: #505f42; 
     display: flex;
     justify-content: center;
     align-items: center;
     transition: opacity 0.5s ease;
     position: relative;
-    /* Redondeamos un poco los bordes para que se vea más elegante */
     border-radius: 12px; 
     overflow: hidden;
 }
 
-.model-container:hover {
-    opacity: 0.9;
-}
+.model-container:hover { opacity: 0.9; }
 
 model-viewer {
     width: 100%;
     height: 100%;
-    /* Mantenemos el fondo transparente para que deje ver el verde del contenedor */
     background-color: transparent; 
-    /* ¡Cambiamos a block para que el modelo por fin sea visible! */
     display: block; 
 }
 
-#placeholder-text {
-    text-align: center;
-}
-
 /* =========================================
-   SECCIÓN DE CONTACTO (Estilo Elegante)
+   UI DEL MODELO 3D (Controles Globales)
    ========================================= */
-.contact-section {
-    max-width: 600px;
-    margin: 0 auto 6rem;
-    padding: 0 2rem;
-    text-align: center;
-}
-
-.contact-section h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 2rem;
-    font-weight: normal;
-    color: var(--burgundy);
-    margin-bottom: 3rem;
-}
-
-.contact-form {
+.controles-3d-globales {
     display: flex;
-    flex-direction: column;
-    gap: 2rem;
-}
-
-/* Inputs minimalistas: solo la línea de abajo */
-.contact-form input, .contact-form textarea {
-    width: 100%;
-    padding: 1rem 0;
-    background: transparent;
-    border: none;
-    border-bottom: 1px solid rgba(122, 93, 78, 0.4);
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 3rem;
     font-family: 'Segoe UI', sans-serif;
-    font-size: 1rem;
     color: var(--burgundy);
-    transition: border-color 0.3s ease;
-    box-sizing: border-box;
-}
-
-.contact-form input:focus, .contact-form textarea:focus {
-    outline: none;
-    border-bottom: 1px solid var(--terracota);
-}
-
-.contact-form textarea {
-    resize: vertical;
-    min-height: 100px;
-}
-
-.btn-submit {
-    background-color: var(--burgundy);
-    color: var(--off-white);
-    border: none;
-    padding: 1rem;
-    font-family: 'Segoe UI', sans-serif;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    font-size: 0.85rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: 1rem;
-}
-
-.btn-submit:hover {
-    background-color: var(--terracota);
-}
-
-/* =========================================
-   UI DEL MODELO 3D
-   ========================================= */
-.controles-3d {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(242, 237, 230, 0.9);
+    background: white;
     padding: 10px 20px;
     border-radius: 20px;
-    display: flex;
-    gap: 15px;
-    align-items: center;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    font-family: 'Segoe UI', sans-serif;
-    font-size: 0.9rem;
-}
-
-.control-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: var(--burgundy);
+    box-shadow: 0 4px 15px rgba(122, 93, 78, 0.1);
+    border: 1px solid rgba(122, 93, 78, 0.2);
 }
 
 #color-modelo {
@@ -286,12 +213,10 @@ model-viewer {
     transition: background 0.3s;
 }
 
-.btn-reset:hover {
-    background: var(--burgundy);
-}
+.btn-reset:hover { background: var(--burgundy); }
 
 /* =========================================
-   NUEVAS SECCIONES DE INFORMACIÓN
+   SECCIONES DE INFORMACIÓN
    ========================================= */
 .info-section {
     padding: 5rem 2rem;
@@ -299,7 +224,7 @@ model-viewer {
 }
 
 .alternate-bg {
-    background-color: rgba(122, 93, 78, 0.05); /* Fondo ligerísimo Marrom */
+    background-color: rgba(122, 93, 78, 0.05); 
 }
 
 .container-small {
@@ -350,48 +275,47 @@ model-viewer {
     font-weight: 600;
 }
 
-/* Ajuste a una columna en celulares */
 @media (max-width: 768px) {
-    .features-grid {
-        grid-template-columns: 1fr;
-    }
+    .features-grid { grid-template-columns: 1fr; }
 }
 
-/* Significado (Ká Hai) (Actualizado con Logo) */
+/* Significado (Ká Hai) */
 .meaning-box {
     background: white;
     padding: 3rem 2rem;
     border: 1px solid rgba(122, 93, 78, 0.2);
     border-radius: 16px;
     box-shadow: 0 10px 30px rgba(94, 44, 52, 0.05);
-    position: relative; /* Necesario para el fondo */
+    position: relative; 
     overflow: hidden;
     z-index: 1;
 }
 
-/* El logo de fondo en la caja de significado */
 .meaning-box::before {
     content: '';
     position: absolute;
     top: 50%;
-    left: 70%; /* Lo muevo un poco a la derecha para que no estorbe tanto el texto */
+    left: 70%; 
     transform: translate(-75%, -50%);
     width: 700px; 
     height: 700px;
-    background-image: url('../assets/images/logoKaHai.png'); /* Ruta de tu imagen */
+    background-image: url('../assets/images/logoKaHai.png'); 
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    opacity: 0.1; /* Transparencia aún más sutil (5%) */
+    opacity: 0.1; 
     z-index: -1;
+} /* Llave de cierre corregida aquí */
 
-.word-title {
-    /* Mantenemos la tipografía base elegante si no cargó Intro Rust aquí, o puedes cambiársela si gustas */
+/* Título de la caja de significado (Especificidad corregida) */
+.info-section h2.word-title {
     font-family: 'Intro Rust', Impact, sans-serif;
-    font-size: 3rem;
+    font-size: 3.5rem;
     color: var(--terracota);
-    margin: 0;
+    margin-bottom: 0.5rem;
     letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: normal;
 }
 
 .etymology {
@@ -415,33 +339,64 @@ model-viewer {
 }
 
 /* =========================================
-   ESTILOS DE LOS MODELOS MULTIPLES
+   SECCIÓN DE CONTACTO
    ========================================= */
-.model-wrapper {
-    width: 100%;
-    margin-bottom: 4rem; /* Espacio entre los dos visores 3D */
+.contact-section {
+    max-width: 600px;
+    margin: 0 auto 6rem;
+    padding: 0 2rem;
+    text-align: center;
 }
 
-.modelo-titulo {
-    font-family: 'Intro Rust', Impact, sans-serif;
-    font-size: 2.5rem;
-    color: var(--terracota);
-    margin-bottom: 1rem;
+.contact-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
     font-weight: normal;
-    letter-spacing: 2px;
+    color: var(--burgundy);
+    margin-bottom: 3rem;
 }
 
-.controles-3d-globales {
+.contact-form {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 3rem;
-    font-family: 'Segoe UI', sans-serif;
-    color: var(--burgundy);
-    background: white;
-    padding: 10px 20px;
-    border-radius: 20px;
-    box-shadow: 0 4px 15px rgba(122, 93, 78, 0.1);
-    border: 1px solid rgba(122, 93, 78, 0.2);
+    flex-direction: column;
+    gap: 2rem;
 }
+
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 1rem 0;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(122, 93, 78, 0.4);
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 1rem;
+    color: var(--burgundy);
+    transition: border-color 0.3s ease;
+    box-sizing: border-box;
+}
+
+.contact-form input:focus, .contact-form textarea:focus {
+    outline: none;
+    border-bottom: 1px solid var(--terracota);
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.btn-submit {
+    background-color: var(--burgundy);
+    color: var(--off-white);
+    border: none;
+    padding: 1rem;
+    font-family: 'Segoe UI', sans-serif;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 1rem;
+}
+
+.btn-submit:hover { background-color: var(--terracota); }
