@@ -190,7 +190,7 @@ model-viewer {
     border: 1px solid rgba(122, 93, 78, 0.2);
 }
 
-#color-modelo {
+/*#color-modelo {
     border: none;
     width: 25px;
     height: 25px;
@@ -201,7 +201,7 @@ model-viewer {
 }
 
 #color-modelo::-webkit-color-swatch-wrapper { padding: 0; }
-#color-modelo::-webkit-color-swatch { border: 2px solid var(--marrom); border-radius: 50%; }
+#color-modelo::-webkit-color-swatch { border: 2px solid var(--marrom); border-radius: 50%; }*/
 
 .btn-reset {
     background: var(--terracota);

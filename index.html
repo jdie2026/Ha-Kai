@@ -32,8 +32,6 @@
             
             <!-- Controles Globales para ambos modelos 3D -->
             <div class="controles-3d-globales">
-                <label for="color-modelo">Color de visualización:</label>
-                <input type="color" id="color-modelo" value="#ffffff">
                 <button class="btn-reset" onclick="resetearVistas()">Restaurar Vistas</button>
             </div>
 
@@ -139,17 +137,6 @@
         // --- CONTROL DE LOS MODELOS 3D ---
         const modeloBloque = document.querySelector('#modelo-bloque');
         const modeloMolde = document.querySelector('#modelo-molde');
-        const colorPicker = document.querySelector('#color-modelo');
-
-        colorPicker.addEventListener('input', (event) => {
-            const colorString = event.target.value;
-            if(modeloBloque.model && modeloBloque.model.materials.length > 0) {
-                modeloBloque.model.materials[0].pbrMetallicRoughness.setBaseColorFactor(colorString);
-            }
-            if(modeloMolde.model && modeloMolde.model.materials.length > 0) {
-                modeloMolde.model.materials[0].pbrMetallicRoughness.setBaseColorFactor(colorString);
-            }
-        });
 
         function resetearVistas() {
             modeloBloque.cameraOrbit = "auto auto auto";
@@ -157,6 +144,9 @@
             modeloMolde.cameraOrbit = "auto auto auto";
             modeloMolde.cameraTarget = "auto auto auto";
         }
+
+        // --- ENVÍO DE FORMULARIO SIN REDIRECCIÓN (AJAX) ---
+        // (El resto del código de Formspree se queda igualito)
 
         // --- ENVÍO DE FORMULARIO SIN REDIRECCIÓN (AJAX) ---
         const formContacto = document.getElementById('form-contacto');
