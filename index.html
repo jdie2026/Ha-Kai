@@ -144,6 +144,21 @@
             modeloMolde.cameraOrbit = "auto auto auto";
             modeloMolde.cameraTarget = "auto auto auto";
         }
+        // --- EFECTO PLATEADO PARA EL MOLDE ---
+        // Escuchamos el evento 'load' para asegurarnos de que la malla ya existe antes de editarla
+        modeloMolde.addEventListener('load', () => {
+            if (modeloMolde.model && modeloMolde.model.materials.length > 0) {
+                // Accedemos a las propiedades PBR del primer material (índice 0)
+                const materialPBR = modeloMolde.model.materials[0].pbrMetallicRoughness;
+                
+                // 1. Color base (un gris claro platinado)
+                materialPBR.setBaseColorFactor('#D1D5D8');
+                
+                // 2. Propiedades físicas para simular metal
+                materialPBR.setMetallicFactor(1.0);   // 100% metálico
+                materialPBR.setRoughnessFactor(0.25); // Rugosidad baja para que tenga buenos reflejos
+            }
+        });
 
         // --- ENVÍO DE FORMULARIO SIN REDIRECCIÓN (AJAX) ---
         // (El resto del código de Formspree se queda igualito)
